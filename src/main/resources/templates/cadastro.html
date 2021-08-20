@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="format :: headBootstrap">
+    <title>Cadastro | Stockman</title>
+    <style>
+
+        label{
+        padding-left:10px;
+        }
+
+        .justf{
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="format :: navlinks"></div>
+<div class="container" style="padding-left:10px;padding-top:30px;">
+    <h2 class="h1 text-center">Cadastro de Produtos</h2>
+    <form style="padding-top:30px;">
+        <div class="row">
+            <div class="col-6 form-group">
+                <label for="nomeproduto" class="col-sm-2 col-form-label col-form-label-sm">Nome</label>
+                <input type="nome" class="form-control" id="nomeproduto" aria-describedby="emailHelp">
+            </div>
+            <div class="col mb-3">
+                <label class="form-label col-sm-2 col-form-label col-form-label-sm" for="categoriaproduto">Categoria</label>
+                <select class="form-control" id="categoriaproduto">
+                    <option classselected>COLOCAR categoria.</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+            <div class="col form-group">
+                <label for="fornecedorproduto" class="col-sm-2 col-form-label col-form-label-sm">Fornecedor</label>
+                <input type="password" class="form-control" id="fornecedorproduto">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col form-group">
+                <label for="custoproduto" class="col-sm-2 col-form-label col-form-label-sm">Investimento</label>
+                <input type="password" class="form-control" id="custoproduto" placeholder="R$ 00,00">
+            </div>
+            <div class="col form-group">
+                <label for="precoproduto" class="col-sm-2 col-form-label col-form-label-sm">Preço</label>
+                <input type="password" class="form-control" id="precoproduto" placeholder="R$ 00,00">
+            </div>
+
+            <div class="col form-group">
+                <label for="pesoproduto" class="col-sm-2 col-form-label col-form-label-sm">Peso</label>
+                <input type="password" class="form-control" id="pesoproduto" placeholder="0 Kg">
+            </div>
+            <div class="col form-group">
+                <label for="corproduto" class="col-sm-2 col-form-label col-form-label-sm">Cor</label>
+                <select class="form-control" id="corproduto">
+                    <option classselected>Nenhum</option>
+                    <option value="1">Vermelho</option>
+                    <option value="2">Azul</option>
+                    <option value="3">Verde</option>
+                    <option value="3">Amarelo</option>
+                    <option value="3">Roxo</option>
+                    <option value="3">Laranja</option>
+
+                </select>
+            </div>
+
+            <div class="col form-group">
+                <label for="modeloproduto" class="col-sm-2 col-form-label col-form-label-sm">Modelo</label>
+                <input type="password" class="form-control" id="modeloproduto">
+            </div>
+            <div class="col form-group">
+                <label for="fabricanteproduto" class="col-sm-2 col-form-label col-form-label-sm">Fabricante</label>
+                <input type="password" class="form-control" id="fabricanteproduto">
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="descriptionproduto" class="col-sm-2 col-form-label col-form-label-sm">Descrição</label>
+            <textarea class="form-control" id="descriptionproduto" rows="3"></textarea>
+        </div>
+        <div class="text-center">
+            <a href="/gerenciador" class="btn btn-danger">Voltar</a>
+            <button type="submit" class="btn btn-success">Confirmar</button>
+        </div>
+
+    </form>
+</div>
+<div th:replace="format :: rodape"></div>
+</body>
+</html>

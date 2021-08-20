@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="format :: headBootstrap">
+  <title>Gerenciador | Stockman</title>
+  <style>
+        .justf{
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="format :: navlinks"></div>
+<div  class="text-center" style="padding-left:10px;padding-top:30px;">
+  <h2 class="h1">Gerenciador</h2>
+  <div class="row justify-content-center" style="padding-top:30px;">
+    <div class="col-sm-6 col-md-4 col-xl-3 mb-3">
+      <div class="card text-white bg-dark mb-3 text-center" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Novo Produto</h5>
+          <p class="card-subtitle mb-2 text-muted">Cadastrar novo tipo de produto no banco de dados</p>
+          <a href="/gerenciador/cadastro" class="btn btn-light">Cadastrar Produto</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-xl-3 mb-3 align-self-center">
+      <div class="card text-white bg-dark mb-3 text-center" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Entrada de Produto</h5>
+          <p class="card-subtitle mb-2 text-muted">Registro da etiqueta RFID no produto</p>
+          <a href="/gerenciador/entrada" class="btn btn-light">Registrar Produto</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center" style="padding-top:30px;">
+    <div class="col-sm-6 col-md-4 col-xl-3 mb-3">
+      <div class="card text-white bg-dark mb-3 text-center" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Consulta</h5>
+          <p class="card-subtitle mb-2 text-muted">Consultas de produtos no banco de dados</p>
+          <a href="/gerenciador/consulta" class="btn btn-light">Consultar Produto</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-xl-3 mb-3">
+      <div class="card text-white bg-dark mb-3 text-center" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Saída de Produto</h5>
+          <p class="card-subtitle mb-2 text-muted">Despacho de produto para as docas após venda</p>
+          <a href="/gerenciador/despacho" class="btn btn-light">Despachar Produto</a>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--  <div class="row justify-content-center" style="padding-top:30px;">-->
+<!--    -->
+<!--    <div class="col-sm-6 col-md-4 col-xl-3 mb-3 align-self-center">-->
+<!--      <div class="card text-white bg-dark mb-3 text-center" style="width: 18rem;">-->
+<!--        <div class="card-body">-->
+<!--          <h5 class="card-title">Registrar no Estoque</h5>-->
+<!--          <p class="card-subtitle mb-2 text-muted">Registro da etiqueta RFID no produto</p>-->
+<!--          <a href="#" class="btn btn-light">Registrar Produto</a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+</div>
+<div th:replace="format :: rodape"></div>
+</body>
+</html>

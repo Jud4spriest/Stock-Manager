@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headBootstrap">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <style>
+        .footer {
+            position:absolute;
+            bottom:0;
+            width:100%;
+        }
+
+        body{
+            background-color: #e0e0e0;
+            padding-bottom:20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav th:fragment="navlinks" class="navbar navbar-dark" style="padding-right:20px; background-image: linear-gradient(to top,#212529 1%, #212529 10%);">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="color: #c95e00;font-size:30px;padding-right:20px; ">
+                <img src="https://image.flaticon.com/icons/png/512/603/603156.png" style="opacity: 0.8;filter: alpha(opacity=80);" alt="" width="30" height="24" class="d-inline-block align-text-top">
+                StockMan
+            </a>
+            <ul style="color:#c95e00; font-size:20px; padding-top:20px">
+                <a class="btn btn-dark btn-lg" href="/home" role="button">Home</a>
+<!--                <a class="btn btn-dark btn-lg" href="#" role="button">Consulta</a>-->
+                <a class="btn btn-dark btn-lg" role="button" href="/dashboard">Dashboard</a>
+                <a class="btn btn-dark btn-lg" role="button" href="/gerenciador">Gerenciador</a>
+<!--                <a class="btn btn-dark btn-lg" role="button" href="/cadastroProdutos">Cadastro</a>-->
+<!--                <a class="btn btn-dark btn-lg" role="button" href="/despachoProdutos">Despacho</a>-->
+            </ul>
+        </div>
+    </nav>
+
+    <div class="footer" th:fragment="rodape" style="margin-top: 5px">
+        <div class="card text-center bg-dark text-white">
+            <div class="card-body">
+                <h5 class="^card-title">Developed by: Marcos Azevedo</h5>
+                <p class="card-text">Website construído utilizando SpringBoot e Boostrap. Acesse o código fonte no <a href="#">GitHub</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
