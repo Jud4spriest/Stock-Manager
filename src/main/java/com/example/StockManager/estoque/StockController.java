@@ -1,5 +1,6 @@
 package com.example.StockManager.estoque;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,19 +9,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class StockController {
 
+
+    private final StockService stockService;
+
+    @Autowired //instancia automaticamente stockService
+    public StockController(StockService stockService){
+        this.stockService = stockService;
+    }
+
     @GetMapping
-    public List<Produto> listaProdutos(){
-        return List.of(
-                new Produto(
-                        "Fone de Ouvido",
-                        "Acessorio",
-                        100.00,
-                        150.00
-                )
-        );
+    public List<Produto> getProdutos(){
+        return stockService.getProdutos();
     }
 
     @RequestMapping("/home")
@@ -38,10 +40,11 @@ public class StockController {
         return "gerenciador";
     }
 
-    @RequestMapping("/gerenciador/cadastro")
-    public String cadastro(){
+/*    @GetMapping("/gerenciador/cadastro")
+    public String cadastro(Model model) {
+        model.addAttribute("produto", new Produto());
         return "cadastro";
-    }
+    }*/
 
     @RequestMapping("/gerenciador/entrada")
     public String entrada(){

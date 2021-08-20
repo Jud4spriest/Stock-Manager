@@ -1,25 +1,49 @@
 package com.example.StockManager.estoque;
 
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.text.SimpleDateFormat; //Qual objeto de data devo usar?
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Map;
 
-
+@Entity
+@Table
 public class Produto {
 
-    private long id;
+    @Id
+    @SequenceGenerator(
+            name = "product_sequence",
+            sequenceName = "product_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "product_sequence"
+    )
+    private Long id;
 
     private String nome;
+
     private String descricao;
+
+
     private String categoria;
     private String cor;
+
     private String peso;
+
     private String fabricante;
+
+
     private String fornecedor;
     private String modelo;
+
     private double valorInvestido;
+
     private double precoVenda;
 
     private int qtd;
@@ -186,19 +210,19 @@ public class Produto {
     public String toString() {
         return "Produto{" +
                 "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", categoria='" + categoria + '\'' +
-                ", cor='" + cor + '\'' +
-                ", peso='" + peso + '\'' +
-                ", fabricante='" + fabricante + '\'' +
-                ", fornecedor='" + fornecedor + '\'' +
-                ", modelo='" + modelo + '\'' +
+                ", nome=" + nome + '\'' +
+                ", descricao=" + descricao + '\'' +
+                ", categoria=" + categoria + '\'' +
+                ", cor=" + cor + '\'' +
+                ", peso=" + peso + '\'' +
+                ", fabricante=" + fabricante + '\'' +
+                ", fornecedor=" + fornecedor + '\'' +
+                ", modelo=" + modelo + '\'' +
                 ", valor_investido=" + valorInvestido +
                 ", preco_venda=" + precoVenda +
                 ", qtd=" + qtd +
-                ", rfid='" + rfid + '\'' +
-                ", EAN='" + EAN + '\'' +
+                ", rfid=" + rfid + '\'' +
+                ", EAN=" + EAN + '\'' +
                 ", caracteristicas=" + caracteristicas +
                 ", data_entrada=" + dataEntrada +
                 ", data_saida=" + dataSaida +
