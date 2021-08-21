@@ -8,11 +8,13 @@ import java.util.List;
 @Service
 public class StockService {
 
+
     private final StockRepository stockRepository;
 
     @Autowired
     public StockService(StockRepository stockRepository){
         this.stockRepository = stockRepository;
+
     }
 
     public List<Produto> getProdutos(){

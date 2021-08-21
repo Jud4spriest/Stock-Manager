@@ -1,3 +1,5 @@
+
+
 package com.example.StockManager.estoque;
 
 import org.springframework.boot.CommandLineRunner;
@@ -18,6 +20,7 @@ public class StockConfig {
                     100.00,
                     150.00
             );
+
             Produto y = new Produto(
                     "Coca",
                     "Bebida",
@@ -26,10 +29,8 @@ public class StockConfig {
             );
 
             repository.saveAll(List.of(x,y));
-            repository.saveAll( //salva para o db
-                    List.of(x,y)
-            );
 
         };
     }
 }
+

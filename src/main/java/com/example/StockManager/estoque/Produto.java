@@ -1,5 +1,6 @@
 package com.example.StockManager.estoque;
 
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -27,7 +28,9 @@ public class Produto {
     @NotNull
     @Size(min = 4, max = 50)
     private String nome;
+
     private String descricao;
+
     @NotNull
     private String categoria;
     private String cor;
@@ -204,17 +207,18 @@ public class Produto {
     public String toString() {
         return "Produto{" +
                 "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", categoria='" + categoria + '\'' +
-                ", cor='" + cor + '\'' +
-                ", peso='" + peso + '\'' +
-                ", fabricante='" + fabricante + '\'' +
-                ", fornecedor='" + fornecedor + '\'' +
-                ", modelo='" + modelo + '\'' +
+                ", nome=" + nome + '\'' +
+                ", descricao=" + descricao + '\'' +
+                ", categoria=" + categoria + '\'' +
+                ", cor=" + cor + '\'' +
+                ", peso=" + peso + '\'' +
+                ", fabricante=" + fabricante + '\'' +
+                ", fornecedor=" + fornecedor + '\'' +
+                ", modelo=" + modelo + '\'' +
                 ", valor_investido=" + valorInvestido +
                 ", preco_venda=" + precoVenda +
                 ", qtd=" + qtd +
+
                 ", rfid='" + rfid + '\'' +
                 ", EAN='" + EAN + '\'' +
                 ", data_entrada=" + dataEntrada +

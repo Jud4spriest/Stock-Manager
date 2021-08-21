@@ -12,13 +12,13 @@ import java.util.List;
 @RestController
 public class StockController {
 
+
     private final StockService stockService;
 
     @Autowired
     public StockController(StockService stockService){
         this.stockService = stockService;
     }
-
 
     @GetMapping
     public List<Produto> listaProdutos(){
@@ -40,10 +40,11 @@ public class StockController {
         return "gerenciador";
     }
 
-    @RequestMapping("/gerenciador/cadastro")
-    public String cadastro(){
+/*    @GetMapping("/gerenciador/cadastro")
+    public String cadastro(Model model) {
+        model.addAttribute("produto", new Produto());
         return "cadastro";
-    }
+    }*/
 
     @RequestMapping("/gerenciador/entrada")
     public String entrada(){
