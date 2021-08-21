@@ -1,31 +1,53 @@
 package com.example.StockManager.estoque;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.text.SimpleDateFormat; //Qual objeto de data devo usar?
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
-import java.util.Map;
 
-
+@Entity
+@Table
 public class Produto {
 
+    @Id
+    @SequenceGenerator(
+            name = "product_sequence",
+            sequenceName = "product_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "product_sequence"
+    )
     private long id;
 
+    @NotNull
+    @Size(min = 4, max = 50)
     private String nome;
     private String descricao;
+    @NotNull
     private String categoria;
     private String cor;
-    private String peso;
+    @NotNull
+    private float peso;
+    @NotNull
+    @Size(min = 4, max = 50)
     private String fabricante;
+    @NotNull
+    @Size(min = 4, max = 50)
     private String fornecedor;
     private String modelo;
+    @NotNull
     private double valorInvestido;
+    @NotNull
     private double precoVenda;
 
     private int qtd;
     private String rfid;
     private String EAN;
-    private Map<String,String> caracteristicas;
     private LocalDate dataEntrada;
     private LocalDate dataSaida;
 
@@ -41,6 +63,10 @@ public class Produto {
         this.precoVenda = precoVenda;
 //        DateTimeFormatter parser = DateTimeFormatter.ofPattern("dd-MM-uuuu");
         this.dataEntrada = LocalDate.now();
+        this.peso = 0f;
+        this.fabricante = "Nenhum";
+        this.fornecedor = "Nenhum";
+
     }
 
     /////////////////////////////////////////////////////////////
@@ -86,11 +112,11 @@ public class Produto {
         this.cor = cor;
     }
 
-    public String getPeso() {
+    public Float getPeso() {
         return peso;
     }
 
-    public void setPeso(String peso) {
+    public void setPeso(Float peso) {
         this.peso = peso;
     }
 
@@ -158,14 +184,6 @@ public class Produto {
         this.EAN = EAN;
     }
 
-    public Map<String, String> getCaracteristicas() {
-        return caracteristicas;
-    }
-
-    public void setCaracteristicas(Map<String, String> caracteristicas) {
-        this.caracteristicas = caracteristicas;
-    }
-
     public LocalDate getData_entrada() {
         return dataEntrada;
     }
@@ -199,7 +217,6 @@ public class Produto {
                 ", qtd=" + qtd +
                 ", rfid='" + rfid + '\'' +
                 ", EAN='" + EAN + '\'' +
-                ", caracteristicas=" + caracteristicas +
                 ", data_entrada=" + dataEntrada +
                 ", data_saida=" + dataSaida +
                 '}';
