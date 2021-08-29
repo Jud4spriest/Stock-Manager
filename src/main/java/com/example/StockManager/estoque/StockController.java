@@ -75,7 +75,7 @@ public class StockController {
             return "cadastro";
         }
         repository.save(produto);
-        return "cadastro";
+        return "index";
     }
 
 
