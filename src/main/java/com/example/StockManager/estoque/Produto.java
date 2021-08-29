@@ -24,18 +24,13 @@ public class Produto {
             generator = "product_sequence"
     )
     private long id;
-
     @NotNull
     @Size(min = 4, max = 50)
     private String nome;
-
     private String descricao;
-
     @NotNull
     private String categoria;
     private String cor;
-    @NotNull
-    private float peso;
     @NotNull
     @Size(min = 4, max = 50)
     private String fabricante;
@@ -44,9 +39,11 @@ public class Produto {
     private String fornecedor;
     private String modelo;
     @NotNull
-    private double valorInvestido;
+    private float peso;
     @NotNull
-    private double precoVenda;
+    private float investimento;
+    @NotNull
+    private float preco;
 
     private int qtd;
     private String rfid;
@@ -54,24 +51,19 @@ public class Produto {
     private LocalDate dataEntrada;
     private LocalDate dataSaida;
 
-    //VERIFICAR OS CONSTRUTUROES.
-
-    public Produto() {
+/*    public Produto() {
     }
 
-    public Produto(String nome, String categoria, Double valorInvestido, Double precoVenda) {
+    public Produto(String nome, String categoria, float investimento, float preco) {
         this.nome = nome;
         this.categoria = categoria;
-        this.valorInvestido = valorInvestido;
-        this.precoVenda = precoVenda;
-//        DateTimeFormatter parser = DateTimeFormatter.ofPattern("dd-MM-uuuu");
-        this.dataEntrada = LocalDate.now();
         this.peso = 0f;
         this.fabricante = "Nenhum";
         this.fornecedor = "Nenhum";
-
-    }
-
+        this.investimento = investimento;
+        this.preco = preco;
+        this.dataEntrada = LocalDate.now();
+    }*/
     /////////////////////////////////////////////////////////////
 
 
@@ -115,14 +107,6 @@ public class Produto {
         this.cor = cor;
     }
 
-    public Float getPeso() {
-        return peso;
-    }
-
-    public void setPeso(Float peso) {
-        this.peso = peso;
-    }
-
     public String getFabricante() {
         return fabricante;
     }
@@ -147,20 +131,28 @@ public class Produto {
         this.modelo = modelo;
     }
 
-    public Double getValor_investido() {
-        return valorInvestido;
+    public float getPeso() {
+        return peso;
     }
 
-    public void setValor_investido(Double valor_investido) {
-        this.valorInvestido = valor_investido;
+    public void setPeso(float peso) {
+        this.peso = peso;
     }
 
-    public Double getPreco_venda() {
-        return precoVenda;
+    public float getInvestimento() {
+        return investimento;
     }
 
-    public void setPreco_venda(Double preco_venda) {
-        this.precoVenda = preco_venda;
+    public void setInvestimento(float investimento) {
+        this.investimento = investimento;
+    }
+
+    public float getPreco() {
+        return preco;
+    }
+
+    public void setPreco(float preco) {
+        this.preco = preco;
     }
 
     public int getQtd() {
@@ -187,43 +179,41 @@ public class Produto {
         this.EAN = EAN;
     }
 
-    public LocalDate getData_entrada() {
+    public LocalDate getDataEntrada() {
         return dataEntrada;
     }
 
-    public void setData_entrada(LocalDate data_entrada) {
-        this.dataEntrada = data_entrada;
+    public void setDataEntrada(LocalDate dataEntrada) {
+        this.dataEntrada = dataEntrada;
     }
 
-    public LocalDate getData_saida() {
+    public LocalDate getDataSaida() {
         return dataSaida;
     }
 
-    public void setData_saida(LocalDate data_saida) {
-        this.dataSaida = data_saida;
+    public void setDataSaida(LocalDate dataSaida) {
+        this.dataSaida = dataSaida;
     }
 
     @Override
     public String toString() {
         return "Produto{" +
                 "id=" + id +
-                ", nome=" + nome + '\'' +
-                ", descricao=" + descricao + '\'' +
-                ", categoria=" + categoria + '\'' +
-                ", cor=" + cor + '\'' +
-                ", peso=" + peso + '\'' +
-                ", fabricante=" + fabricante + '\'' +
-                ", fornecedor=" + fornecedor + '\'' +
-                ", modelo=" + modelo + '\'' +
-                ", valor_investido=" + valorInvestido +
-                ", preco_venda=" + precoVenda +
+                ", nome='" + nome + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", categoria='" + categoria + '\'' +
+                ", cor='" + cor + '\'' +
+                ", fabricante='" + fabricante + '\'' +
+                ", fornecedor='" + fornecedor + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", peso=" + peso +
+                ", investimento=" + investimento +
+                ", preco=" + preco +
                 ", qtd=" + qtd +
-
                 ", rfid='" + rfid + '\'' +
                 ", EAN='" + EAN + '\'' +
-                ", data_entrada=" + dataEntrada +
-                ", data_saida=" + dataSaida +
+                ", dataEntrada=" + dataEntrada +
+                ", dataSaida=" + dataSaida +
                 '}';
     }
-
 }

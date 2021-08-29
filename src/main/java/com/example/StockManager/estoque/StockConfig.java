@@ -14,21 +14,21 @@ public class StockConfig {
     @Bean
     CommandLineRunner commandLineRunner(StockRepository repository) {
         return args -> {
-            Produto x = new Produto(
+/*            Produto x = new Produto(
                     "Fone de Ouvido",
                     "Acessorio",
                     100.00,
-                    150.00
+                    "150.00"
             );
 
             Produto y = new Produto(
                     "Coca",
                     "Bebida",
                     2.00,
-                    5.00
-            );
+                    "5.00"
+            );*/
 
-            repository.saveAll(List.of(x,y));
+/*            repository.saveAll(List.of(x,y));*/
 
         };
     }

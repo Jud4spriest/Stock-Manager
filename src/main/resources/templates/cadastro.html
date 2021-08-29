@@ -14,42 +14,62 @@
     </style>
 </head>
 <body>
+
+
+
 <div th:replace="format :: navlinks"></div>
 <div class="container" style="padding-left:10px;padding-top:30px;">
     <h2 class="h1 text-center">Cadastro de Produtos</h2>
-    <form style="padding-top:30px;">
+<!--    <div class="alert alert-danger alert-dismissible" role="alert" th:if="${not #strings.isEmpty(produto)}">
+        <span th:text="mensagem"></span>
+    </div>-->
+
+<!--    <th:block th:include="msgErro"></th:block>-->
+    <form style="padding-top:30px;" action="#" th:action="@{/process}" th:object="${produto}" method = "post">
+
         <div class="row">
             <div class="col-6 form-group">
-                <label for="nomeproduto" class="col-sm-2 col-form-label col-form-label-sm">Nome</label>
-                <input type="nome" class="form-control" id="nomeproduto" aria-describedby="emailHelp">
+                <label for="nomeproduto" class="col-sm-2 col-form-label col-form-label-sm">Nome*</label>
+                <input type="text" th:field="*{nome}" class="form-control" id="nomeproduto" aria-describedby="emailHelp">
+                <span style="font-size:10px ;color: #bf0000;" th:if="${#fields.hasErrors('nome')}"
+                      th:errors="*{nome}"></span><br>
             </div>
             <div class="col mb-3">
-                <label class="form-label col-sm-2 col-form-label col-form-label-sm" for="categoriaproduto">Categoria</label>
-                <select class="form-control" id="categoriaproduto">
-                    <option classselected>COLOCAR categoria.</option>
+                <label class="form-label col-sm-2 col-form-label col-form-label-sm" for="categoriaproduto">Categoria*</label>
+                <select class="form-control" id="categoriaproduto" th:field="*{categoria}">
+                    <option value="0" classselected>COLOCAR categoria.</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
                 </select>
+
             </div>
             <div class="col form-group">
-                <label for="fornecedorproduto" class="col-sm-2 col-form-label col-form-label-sm">Fornecedor</label>
-                <input type="password" class="form-control" id="fornecedorproduto">
+                <label for="fornecedorproduto" class="col-sm-2 col-form-label col-form-label-sm">Fornecedor*</label>
+                <input type="text" class="form-control" id="fornecedorproduto" th:field="*{fornecedor}">
+                <span style="font-size:10px ;color: #bf0000;" th:if="${#fields.hasErrors('fornecedor')}"
+                      th:errors="*{fornecedor}"></span><br>
             </div>
         </div>
         <div class="row">
             <div class="col form-group">
-                <label for="custoproduto" class="col-sm-2 col-form-label col-form-label-sm">Investimento</label>
-                <input type="password" class="form-control" id="custoproduto" placeholder="R$ 00,00">
+                <label for="investimentoproduto" class="col-sm-2 col-form-label col-form-label-sm">Investimento*</label>
+                <input type="text" class="form-control" id="investimentoproduto" th:field="*{investimento}" placeholder="R$ 00,00">
+                <span style="font-size:10px ;color: #bf0000;" th:if="${#fields.hasErrors('investimento')}"
+                      th:errors="*{investimento}"></span><br>
             </div>
             <div class="col form-group">
-                <label for="precoproduto" class="col-sm-2 col-form-label col-form-label-sm">Preço</label>
-                <input type="password" class="form-control" id="precoproduto" placeholder="R$ 00,00">
+                <label for="precoproduto" class="col-sm-2 col-form-label col-form-label-sm">Preço*</label>
+                <input type="text" class="form-control" id="precoproduto" th:field="*{preco}" placeholder="R$ 00,00">
+                <span style="font-size:10px ;color: #bf0000;" th:if="${#fields.hasErrors('preco')}"
+                      th:errors="*{preco}"></span><br>
             </div>
 
             <div class="col form-group">
-                <label for="pesoproduto" class="col-sm-2 col-form-label col-form-label-sm">Peso</label>
-                <input type="password" class="form-control" id="pesoproduto" placeholder="0 Kg">
+                <label for="pesoproduto" class="col-sm-2 col-form-label col-form-label-sm">Peso*</label>
+                <input type="text" class="form-control" id="pesoproduto" th:field="*{peso}" placeholder="0 Kg">
+                <span style="font-size:10px ;color: #bf0000;" th:if="${#fields.hasErrors('peso')}"
+                      th:errors="*{peso}"></span><br>
             </div>
             <div class="col form-group">
                 <label for="corproduto" class="col-sm-2 col-form-label col-form-label-sm">Cor</label>
@@ -61,22 +81,23 @@
                     <option value="3">Amarelo</option>
                     <option value="3">Roxo</option>
                     <option value="3">Laranja</option>
-
                 </select>
             </div>
 
             <div class="col form-group">
                 <label for="modeloproduto" class="col-sm-2 col-form-label col-form-label-sm">Modelo</label>
-                <input type="password" class="form-control" id="modeloproduto">
+                <input type="text" th:field="*{modelo}" class="form-control" id="modeloproduto">
             </div>
             <div class="col form-group">
-                <label for="fabricanteproduto" class="col-sm-2 col-form-label col-form-label-sm">Fabricante</label>
-                <input type="password" class="form-control" id="fabricanteproduto">
+                <label for="fabricanteproduto" class="col-sm-2 col-form-label col-form-label-sm">Fabricante*</label>
+                <input type="text" class="form-control" id="fabricanteproduto" th:field="*{fabricante}">
+                <span style="font-size:10px ;color: #bf0000;" th:if="${#fields.hasErrors('fabricante')}"
+                      th:errors="*{fabricante}"></span><br>
             </div>
         </div>
         <div class="mb-3">
             <label for="descriptionproduto" class="col-sm-2 col-form-label col-form-label-sm">Descrição</label>
-            <textarea class="form-control" id="descriptionproduto" rows="3"></textarea>
+            <textarea class="form-control" id="descriptionproduto" rows="3" th:field="*{descricao}"></textarea>
         </div>
         <div class="text-center">
             <a href="/gerenciador" class="btn btn-danger">Voltar</a>
