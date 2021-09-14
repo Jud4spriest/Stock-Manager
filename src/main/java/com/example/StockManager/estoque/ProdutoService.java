@@ -6,19 +6,19 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class StockService {
+public class ProdutoService {
 
 
-    private final StockRepository stockRepository;
+    private final ProdutoRepository produtoRepository;
 
     @Autowired
-    public StockService(StockRepository stockRepository){
-        this.stockRepository = stockRepository;
+    public ProdutoService(ProdutoRepository produtoRepository){
+        this.produtoRepository = produtoRepository;
 
     }
 
     public List<Produto> getProdutos(){
-        return stockRepository.findAll();
+        return produtoRepository.findAll();
         /*return List.of(
                 new Produto(
                         "Fone de Ouvido",
@@ -28,4 +28,6 @@ public class StockService {
                 )
         );*/
     }
+
+
 }

@@ -7,16 +7,16 @@
 <div th:replace="format :: navlinks"></div>
 <div class="container" style="padding-left:10px;padding-top:30px;">
   <h2 class="h1 text-center">Cadastro de Produtos</h2>
-  <form class="text-center" style="padding-top:30px;">
-    <div  class="col form-group">
-      <label for="produtoid" class="col-sm-2 col-form-label col-form-label-sm">Produto Id</label>
-      <input type="nome" class="text-center form-control" id="produtoid">
-    </div>
-    <div style="padding-top:30px;">
-      <a href="/gerenciador" class="btn btn-danger">Voltar</a>
-      <button type="submit" class="btn btn-success">Confirmar</button>
+  <form class="text-center" style="padding-top:30px;" action="#" th:action="@{/connectrfid}" th:object="${arduino}" method = "post">
+    <div class="col-md-6 offset-md-3">
+      <label for="produtoid" class="col-sm-2 col-form-label col-form-label-sm">Id Produto</label>
+      <input type="text" class="form-control" id="produtoid" th:field="*{product}">
     </div>
 
+    <div style="padding-top:30px;">
+      <a href="/gerenciador" class="btn btn-danger align-self-center p-2">Voltar</a>
+      <button type="submit" class="btn btn-success align-self-center p-2">Confirmar</button>
+    </div>
   </form>
 </div>
 <div th:replace="format :: rodape"></div>

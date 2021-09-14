@@ -1,35 +1,36 @@
 package com.example.StockManager.estoque;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @Controller
 public class StockController {
 
 
     @Autowired
-    StockRepository repository;
+    ProdutoRepository produtoRepository;
+    @Autowired
+    ArduinoRepository arduinoRepository;
 
-    private final StockService stockService;
+    private final ProdutoService produtoService;
+    private final ArduinoService arduinoService;
 
     @Autowired
-    public StockController(StockService stockService){
-        this.stockService = stockService;
+    public StockController(ProdutoService produtoService, ArduinoService arduinoService){
+        this.produtoService = produtoService;
+        this.arduinoService = arduinoService;
     }
 
 /*    @GetMapping
     public List<Produto> listaProdutos(){
-        return stockService.getProdutos();
+        return produtoService.getProdutos();
     }*/
 
     @RequestMapping("/home")
@@ -54,7 +55,9 @@ public class StockController {
     }
 
     @RequestMapping("/gerenciador/entrada")
-    public String entrada(){
+    public String entrada(Model model){
+        Arduino arduino = arduinoRepository.findByProductId("STATE_ARDUINO");
+        model.addAttribute("arduino", arduino);
         return "entrada";
     }
 
@@ -74,10 +77,20 @@ public class StockController {
             attributes.addFlashAttribute("mensagem","Preencha todos os campos obrigatórios!");
             return "cadastro";
         }
-        repository.save(produto);
+        produtoRepository.save(produto);
+        return "index";
+    }
+
+    @PostMapping("/connectrfid")
+    public String atualizaArduino(@RequestParam int product){
+        Arduino arduino = arduinoRepository.findByProductId("STATE_ARDUINO");
+        int operacao = 1;
+        arduino.setValue(operacao);
+        arduino.setProduct(product);
+        final Arduino updatedEmployee = arduinoRepository.save(arduino);
         return "index";
     }
 
 
-
 }
+

@@ -6,13 +6,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.List;
-
 @Configuration
 public class StockConfig {
 
     @Bean
-    CommandLineRunner commandLineRunner(StockRepository repository) {
+    CommandLineRunner commandLineRunner(ProdutoRepository repository) {
         return args -> {
 /*            Produto x = new Produto(
                     "Fone de Ouvido",

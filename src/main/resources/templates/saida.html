@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="format :: headBootstrap">
+  <title>Despacho | Stockman</title>
+</head>
+<body>
+<div th:replace="format :: navlinks"></div>
+<div class="container" style="padding-left:10px;padding-top:30px;">
+  <h2 class="h1 text-center">Despacho de Produtos</h2>
+  <form class="text-center" style="padding-top:30px;" action="#" method = "post">
+    <div style="padding-top:30px;">
+      <a href="/gerenciador" class="btn btn-danger">Voltar</a>
+      <button type="submit" class="btn btn-success">Confirmar</button>
+    </div>
+
+  </form>
+</div>
+<div th:replace="format :: rodape"></div>
+</body>
+</html>

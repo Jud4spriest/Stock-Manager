@@ -46,8 +46,6 @@ public class Produto {
     private float preco;
 
     private int qtd;
-    private String rfid;
-    private String EAN;
     private LocalDate dataEntrada;
     private LocalDate dataSaida;
 
@@ -163,22 +161,6 @@ public class Produto {
         this.qtd = qtd;
     }
 
-    public String getRfid() {
-        return rfid;
-    }
-
-    public void setRfid(String rfid) {
-        this.rfid = rfid;
-    }
-
-    public String getEAN() {
-        return EAN;
-    }
-
-    public void setEAN(String EAN) {
-        this.EAN = EAN;
-    }
-
     public LocalDate getDataEntrada() {
         return dataEntrada;
     }
@@ -210,8 +192,6 @@ public class Produto {
                 ", investimento=" + investimento +
                 ", preco=" + preco +
                 ", qtd=" + qtd +
-                ", rfid='" + rfid + '\'' +
-                ", EAN='" + EAN + '\'' +
                 ", dataEntrada=" + dataEntrada +
                 ", dataSaida=" + dataSaida +
                 '}';
