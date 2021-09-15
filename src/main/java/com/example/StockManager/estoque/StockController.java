@@ -6,9 +6,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class StockController {
@@ -18,6 +20,8 @@ public class StockController {
     ProdutoRepository produtoRepository;
     @Autowired
     ArduinoRepository arduinoRepository;
+    @Autowired
+    RfidRepository rfidRepository;
 
     private final ProdutoService produtoService;
     private final ArduinoService arduinoService;
@@ -62,13 +66,24 @@ public class StockController {
     }
 
     @RequestMapping("/gerenciador/consulta")
-    public String consulta(){
+    public String consulta(Model model){
+        model.addAttribute("produtos",produtoRepository.findAll());
         return "consulta";
     }
 
+/*    @GetMapping("/gerenciador/consulta")
+    public ModelAndView listar() {
+        List<Produto> lista = produtoRepository.findAll();
+        ModelAndView modelAndView = new ModelAndView("consulta");
+        modelAndView.addObject("consulta", lista);
+        return modelAndView;
+    }*/
+
     @RequestMapping("/gerenciador/despacho")
-    public String despacho(){
-        return "despacho";
+    public String despacho(Model model){
+        Arduino arduino = arduinoRepository.findByProductId("STATE_ARDUINO");
+        model.addAttribute("arduino", arduino);
+        return "saida";
     }
 
     @PostMapping("/process")
@@ -82,12 +97,28 @@ public class StockController {
     }
 
     @PostMapping("/connectrfid")
-    public String atualizaArduino(@RequestParam int product){
+    public String atualizaArduino(@RequestParam long product){
         Arduino arduino = arduinoRepository.findByProductId("STATE_ARDUINO");
+        Produto produto = produtoRepository.findByProductId(product);
+        produto.setQtd(produto.getQtd()+1);
         int operacao = 1;
         arduino.setValue(operacao);
         arduino.setProduct(product);
-        final Arduino updatedEmployee = arduinoRepository.save(arduino);
+        final Produto updatedProduto = produtoRepository.save(produto);
+        final Arduino updatedArduino = arduinoRepository.save(arduino);
+        return "index";
+    }
+
+    @PostMapping("/connectplatform")
+    public String atualizaArduino2(@RequestParam int product){
+        Arduino arduino = arduinoRepository.findByProductId("STATE_ARDUINO");
+        Produto produto = produtoRepository.findByProductId(product);
+        produto.setQtd(produto.getQtd()-1);
+        int operacao = 2;
+        arduino.setValue(operacao);
+        arduino.setProduct(product);
+        final Produto updatedProduto = produtoRepository.save(produto);
+        final Arduino updatedArduino = arduinoRepository.save(arduino);
         return "index";
     }
 

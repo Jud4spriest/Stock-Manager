@@ -18,14 +18,14 @@ public class Arduino {
     private int value;  //0 - STAND-BY MODE; 1 - RFID MODE; 2 - PLATFORM MODE
 
     @NotNull
-    private int product;
+    private long product;
 
 
-    public int getProduct() {
+    public long getProduct() {
         return product;
     }
 
-    public void setProduct(int product) {
+    public void setProduct(long product) {
         this.product = product;
     }
 

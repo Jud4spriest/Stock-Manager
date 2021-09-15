@@ -3,16 +3,21 @@ package com.example.StockManager.estoque;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "cadastro_rfid")
 public class CadastroRFID {
 
     @Id
-    private String rfid;
     private long productId;
+    @NotNull
+    private String rfid;
     private int posX;
     private int posY;
+    private LocalDate dataEntrada;
+    private LocalDate dataSaida;
 
     public String getRfid() {
         return rfid;

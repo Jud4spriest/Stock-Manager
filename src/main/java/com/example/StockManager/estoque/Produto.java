@@ -44,10 +44,8 @@ public class Produto {
     private float investimento;
     @NotNull
     private float preco;
-
     private int qtd;
-    private LocalDate dataEntrada;
-    private LocalDate dataSaida;
+
 
 /*    public Produto() {
     }
@@ -161,21 +159,6 @@ public class Produto {
         this.qtd = qtd;
     }
 
-    public LocalDate getDataEntrada() {
-        return dataEntrada;
-    }
-
-    public void setDataEntrada(LocalDate dataEntrada) {
-        this.dataEntrada = dataEntrada;
-    }
-
-    public LocalDate getDataSaida() {
-        return dataSaida;
-    }
-
-    public void setDataSaida(LocalDate dataSaida) {
-        this.dataSaida = dataSaida;
-    }
 
     @Override
     public String toString() {
@@ -192,8 +175,6 @@ public class Produto {
                 ", investimento=" + investimento +
                 ", preco=" + preco +
                 ", qtd=" + qtd +
-                ", dataEntrada=" + dataEntrada +
-                ", dataSaida=" + dataSaida +
                 '}';
     }
 }

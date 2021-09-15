@@ -7,7 +7,11 @@
 <div th:replace="format :: navlinks"></div>
 <div class="container" style="padding-left:10px;padding-top:30px;">
   <h2 class="h1 text-center">Despacho de Produtos</h2>
-  <form class="text-center" style="padding-top:30px;" action="#" method = "post">
+  <form class="text-center" style="padding-top:30px;" action="#" th:action="@{/connectplatform}" th:object="${arduino}" method = "post">
+    <div class="col-md-6 offset-md-3">
+      <label for="produtoid2" class="col-sm-2 col-form-label col-form-label-sm">Id Produto</label>
+      <input type="text" class="form-control" id="produtoid2" th:field="*{product}">
+    </div>
     <div style="padding-top:30px;">
       <a href="/gerenciador" class="btn btn-danger">Voltar</a>
       <button type="submit" class="btn btn-success">Confirmar</button>

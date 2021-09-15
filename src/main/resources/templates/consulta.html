@@ -8,17 +8,47 @@
 <div class="container" style="padding-left:10px;padding-top:30px;">
     <h2 class="h1 text-center">Consulta de Produtos</h2>
     <form class="text-center" style="padding-top:30px;">
-        <div  class="col form-group">
+        <div  class="col-md-6 offset-md-3">
             <label for="produtoid" class="col-sm-2 col-form-label col-form-label-sm">Produto Id</label>
             <input type="nome" class="text-center form-control" id="produtoid">
         </div>
-        <div style="padding-top:30px;">
+        <div style="padding-top:20px;">
             <a href="/gerenciador" class="btn btn-danger">Voltar</a>
             <button type="submit" class="btn btn-success">Confirmar</button>
         </div>
-
     </form>
 </div>
+
+<div class="table-responsive" style="padding-top:20px;">
+    <table class="table table-striped table-sm">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Categoria</th>
+            <th>Custo</th>
+            <th>Preço de Venda</th>
+            <th>Quantidade</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="produto: ${produtos}">
+            <td th:text="${produto.id}" ></td>
+            <td th:text="${produto.nome}"></td>
+            <td th:text="${produto.getCategoria()}"></td>
+            <td th:text="${produto.getInvestimento()}"></td>
+            <td th:text="${produto.getPreco()}"></td>
+            <td th:text="${produto.getQtd()}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <div th:each="produto: ${produtos}">
+        <h4 th:inline="text">[[${produto.id}]] na [[${produto.categoria}]]</h4>
+        <p th:text="${produto.nome}"></p>
+    </div>
+
+</div>
+
 <div th:replace="format :: rodape"></div>
 </body>
 </html>

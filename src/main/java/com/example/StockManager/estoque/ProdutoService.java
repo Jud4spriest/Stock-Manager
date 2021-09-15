@@ -9,7 +9,7 @@ import java.util.List;
 public class ProdutoService {
 
 
-    private final ProdutoRepository produtoRepository;
+    private ProdutoRepository produtoRepository;
 
     @Autowired
     public ProdutoService(ProdutoRepository produtoRepository){
