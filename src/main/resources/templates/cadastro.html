@@ -69,7 +69,7 @@
             </div>
 
             <div class="col form-group">
-                <label for="pesoproduto" class="col-sm-2 col-form-label col-form-label-sm">Peso* (Kg)</label>
+                <label for="pesoproduto" class="col-sm-2 col-form-label col-form-label-sm">Peso*</label>
                 <input type="text" class="form-control" id="pesoproduto" th:field="*{peso}" placeholder="0 Kg">
                 <span style="font-size:10px ;color: #bf0000;" th:if="${#fields.hasErrors('peso')}"
                       th:errors="*{peso}"></span><br>
