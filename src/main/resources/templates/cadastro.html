@@ -37,10 +37,13 @@
             <div class="col mb-3">
                 <label class="form-label col-sm-2 col-form-label col-form-label-sm" for="categoriaproduto">Categoria*</label>
                 <select class="form-control" id="categoriaproduto" th:field="*{categoria}">
-                    <option value="0" classselected>COLOCAR categoria.</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option value="0" classselected>Escolher ...</option>
+                    <option value="1">Roupa</option>
+                    <option value="2">Calçado</option>
+                    <option value="3">Informática</option>
+                    <option value="4">Eletrodoméstico</option>
+                    <option value="5">Móvel</option>
+                    <option value="6">Brinquedo</option>
                 </select>
 
             </div>
@@ -66,7 +69,7 @@
             </div>
 
             <div class="col form-group">
-                <label for="pesoproduto" class="col-sm-2 col-form-label col-form-label-sm">Peso*</label>
+                <label for="pesoproduto" class="col-sm-2 col-form-label col-form-label-sm">Peso* (Kg)</label>
                 <input type="text" class="form-control" id="pesoproduto" th:field="*{peso}" placeholder="0 Kg">
                 <span style="font-size:10px ;color: #bf0000;" th:if="${#fields.hasErrors('peso')}"
                       th:errors="*{peso}"></span><br>
@@ -75,12 +78,13 @@
                 <label for="corproduto" class="col-sm-2 col-form-label col-form-label-sm">Cor</label>
                 <select class="form-control" id="corproduto">
                     <option classselected>Nenhum</option>
-                    <option value="1">Vermelho</option>
-                    <option value="2">Azul</option>
-                    <option value="3">Verde</option>
-                    <option value="3">Amarelo</option>
-                    <option value="3">Roxo</option>
-                    <option value="3">Laranja</option>
+                    <option value="1">Branco</option>
+                    <option value="2">Vermelho</option>
+                    <option value="3">Azul</option>
+                    <option value="4">Verde</option>
+                    <option value="5">Amarelo</option>
+                    <option value="6">Roxo</option>
+                    <option value="7">Laranja</option>
                 </select>
             </div>
 
