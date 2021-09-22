@@ -15,7 +15,7 @@ public class ApiController {
     @Autowired
     ArduinoRepository arduinoRepository;
 
-    @GetMapping(path = "/mode", produces = "text/plain")
+    @GetMapping(path = "/mode")
     public Integer modoArduino(){
         return arduinoRepository.findMode();
     }
