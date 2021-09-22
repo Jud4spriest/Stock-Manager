@@ -20,5 +20,10 @@ public class ApiController {
         return arduinoRepository.findMode();
     }
 
+    @GetMapping(path = "/produto")
+    public Long produtoArduino(){
+        return arduinoRepository.findProductId();
+    }
+
 
 }

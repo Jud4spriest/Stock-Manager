@@ -54,7 +54,7 @@ public class StockController {
 
     @RequestMapping("/gerenciador/entrada")
     public String entrada(Model model){
-        Arduino arduino = arduinoRepository.findByProductId("STATE_ARDUINO");
+        Arduino arduino = arduinoRepository.selectMode();
         model.addAttribute("arduino", arduino);
         return "entrada";
     }
@@ -75,7 +75,7 @@ public class StockController {
 
     @RequestMapping("/gerenciador/despacho")
     public String despacho(Model model){
-        Arduino arduino = arduinoRepository.findByProductId("STATE_ARDUINO");
+        Arduino arduino = arduinoRepository.selectMode();
         model.addAttribute("arduino", arduino);
         return "saida";
     }
@@ -92,7 +92,7 @@ public class StockController {
 
     @PostMapping("/connectrfid")
     public String atualizaArduino(@RequestParam long product){
-        Arduino arduino = arduinoRepository.findByProductId("STATE_ARDUINO");
+        Arduino arduino = arduinoRepository.selectMode();
         Produto produto = produtoRepository.findByProductId(product);
         produto.setQtd(produto.getQtd()+1);
         int operacao = 1;
@@ -105,7 +105,7 @@ public class StockController {
 
     @PostMapping("/connectplatform")
     public String atualizaArduino2(@RequestParam int product){
-        Arduino arduino = arduinoRepository.findByProductId("STATE_ARDUINO");
+        Arduino arduino = arduinoRepository.selectMode();
         Produto produto = produtoRepository.findByProductId(product);
         produto.setQtd(produto.getQtd()-1);
         int operacao = 2;

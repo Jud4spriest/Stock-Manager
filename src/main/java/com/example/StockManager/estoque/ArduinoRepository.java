@@ -11,7 +11,10 @@ public interface ArduinoRepository
         extends JpaRepository<Arduino,String> {
 
     @Query("SELECT arduino FROM Arduino arduino WHERE arduino.var = 'STATE_ARDUINO'")
-    Arduino findByProductId(String produtoID);
+    Arduino selectMode();
+
+    @Query("SELECT arduino.product FROM Arduino arduino WHERE arduino.var = 'STATE_ARDUINO'")
+    Long findProductId();
 
     @Query("SELECT arduino.value FROM Arduino arduino WHERE arduino.var = 'STATE_ARDUINO'")
     Integer findMode();
