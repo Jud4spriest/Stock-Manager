@@ -35,7 +35,7 @@ public class ArduinoService {
         arduino.setProductId(productID);
     }*/
 
-    public boolean isArduino(String addr) {
+/*    public boolean isArduino(String addr) {
 
         try {
 
@@ -55,5 +55,5 @@ public class ArduinoService {
         finally{
             return true;
         }
-    }
+    }*/
 }

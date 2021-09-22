@@ -19,14 +19,6 @@ public class ProdutoService {
 
     public List<Produto> getProdutos(){
         return produtoRepository.findAll();
-        /*return List.of(
-                new Produto(
-                        "Fone de Ouvido",
-                        "Acessorio",
-                        100.00,
-                        150.00
-                )
-        );*/
     }
 
 

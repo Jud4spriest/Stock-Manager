@@ -12,4 +12,8 @@ public interface ArduinoRepository
 
     @Query("SELECT arduino FROM Arduino arduino WHERE arduino.var = 'STATE_ARDUINO'")
     Arduino findByProductId(String produtoID);
+
+    @Query("SELECT arduino.value FROM Arduino arduino WHERE arduino.var = 'STATE_ARDUINO'")
+    Integer findMode();
+
 }

@@ -15,7 +15,6 @@ import java.util.List;
 @Controller
 public class StockController {
 
-
     @Autowired
     ProdutoRepository produtoRepository;
     @Autowired
@@ -31,11 +30,6 @@ public class StockController {
         this.produtoService = produtoService;
         this.arduinoService = arduinoService;
     }
-
-/*    @GetMapping
-    public List<Produto> listaProdutos(){
-        return produtoService.getProdutos();
-    }*/
 
     @RequestMapping("/home")
     public String index(){
@@ -67,7 +61,7 @@ public class StockController {
 
     @RequestMapping("/gerenciador/consulta")
     public String consulta(Model model){
-        model.addAttribute("produtos",produtoRepository.findAll());
+        model.addAttribute("produtos",produtoService.getProdutos());
         return "consulta";
     }
 
