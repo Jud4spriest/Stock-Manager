@@ -98,8 +98,8 @@ public class StockController {
         int operacao = 1;
         arduino.setValue(operacao);
         arduino.setProduct(product);
-        final Produto updatedProduto = produtoRepository.save(produto);
-        final Arduino updatedArduino = arduinoRepository.save(arduino);
+        produtoRepository.save(produto);
+        arduinoRepository.save(arduino);
         return "index";
     }
 

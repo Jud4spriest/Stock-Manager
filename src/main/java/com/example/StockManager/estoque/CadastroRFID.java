@@ -14,7 +14,9 @@ public class CadastroRFID {
     private long productId;
     @NotNull
     private String rfid;
+    @NotNull
     private int posX;
+    @NotNull
     private int posY;
     private LocalDate dataEntrada;
     private LocalDate dataSaida;
@@ -49,5 +51,21 @@ public class CadastroRFID {
 
     public void setPosY(int posY) {
         this.posY = posY;
+    }
+
+    public LocalDate getDataEntrada() {
+        return dataEntrada;
+    }
+
+    public void setDataEntrada(LocalDate dataEntrada) {
+        this.dataEntrada = dataEntrada;
+    }
+
+    public LocalDate getDataSaida() {
+        return dataSaida;
+    }
+
+    public void setDataSaida(LocalDate dataSaida) {
+        this.dataSaida = dataSaida;
     }
 }
