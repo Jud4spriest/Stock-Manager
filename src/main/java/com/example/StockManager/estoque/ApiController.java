@@ -50,7 +50,6 @@ public class ApiController {
             arduino.setValue(0);
             arduino.setProduct(0);
             return arduinoRepository.save(arduino);
-        }
     }
 
     /*    @PostMapping(path = "/mode0", consumes = "application/x-www-form-urlencoded")
