@@ -21,6 +21,11 @@ public class ApiController {
         return arduinoRepository.findMode();
     }
 
+    @GetMapping("/arduino")
+    public Arduino arduino(){
+        return arduinoRepository.selectMode();
+    }
+
     @GetMapping("/produto")
     public Long produtoArduino(){
         return arduinoRepository.findProductId();
