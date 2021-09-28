@@ -42,7 +42,7 @@ public class ApiController {
     @PostMapping(path = "/mode0", consumes = "application/x-www-form-urlencoded")
     public Arduino mode0Arduino(@RequestBody @RequestParam Integer mode0){
         if (mode0 != 0) {
-            throw new IllegalStateException("Já possui um livro com este código cadastrado!");
+            throw new IllegalStateException("Modo não permitido via API!");
         } else {
             Arduino arduino = arduinoRepository.selectMode();
             arduino.setValue(mode0);
