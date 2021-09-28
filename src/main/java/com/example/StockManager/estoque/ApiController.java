@@ -44,7 +44,16 @@ public class ApiController {
         cadastro.setDataEntrada(LocalDate.now());
         return rfidRepository.save(cadastro);
     }
-    @PostMapping(path = "/mode0", consumes = "application/x-www-form-urlencoded")
+    @PostMapping("/mode0")
+    public Arduino mode0Arduino(){
+            Arduino arduino = arduinoRepository.selectMode();
+            arduino.setValue(0);
+            arduino.setProduct(0);
+            return arduinoRepository.save(arduino);
+        }
+    }
+
+    /*    @PostMapping(path = "/mode0", consumes = "application/x-www-form-urlencoded")
     public Arduino mode0Arduino(@RequestBody @RequestParam Integer mode0){
         if (mode0 != 0) {
             throw new IllegalStateException("Modo não permitido via API!");
@@ -54,5 +63,5 @@ public class ApiController {
             arduino.setProduct(mode0);
             return arduinoRepository.save(arduino);
         }
-    }
+    }*/
 }
