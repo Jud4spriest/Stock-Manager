@@ -65,6 +65,7 @@ public class StockController {
         return "consulta";
     }
 
+
 /*    @GetMapping("/gerenciador/consulta")
     public ModelAndView listar() {
         List<Produto> lista = produtoRepository.findAll();
@@ -78,6 +79,13 @@ public class StockController {
         Arduino arduino = arduinoRepository.selectMode();
         model.addAttribute("arduino", arduino);
         return "saida";
+    }
+
+    @GetMapping("/{product}")
+    public String mostraCadastro(Model model, @PathVariable("product") long product){
+        CadastroRFID produto = rfidRepository.findByProductId(product);
+        model.addAttribute("produtos",produto);
+        return "rfid";
     }
 
     @PostMapping("/process")

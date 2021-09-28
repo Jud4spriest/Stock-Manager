@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="format :: headBootstrap">
+  <title>Consulta | Stockman</title>
+</head>
+<body>
+<div th:replace="format :: navlinks"></div>
+<div class="container" style="padding-left:10px;padding-top:30px;">
+  <h2 class="h1 text-center">Consulta de Produtos</h2>
+</div>
+
+<div class="table-responsive" style="padding-top:20px;">
+  <table class="table table-striped table-sm">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>RFID</th>
+      <th>Posição X</th>
+      <th>Posição Y</th>
+      <th>Data de Entrada</th>
+      <th>Data de Saída</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="produto: ${produtos}">
+      <td th:text="${produto.productId}" ></td>
+      <td th:text="${produto.rfid}"></td>
+      <td th:text="${produto.getPosX()}"></td>
+      <td th:text="${produto.getPosY()}"></td>
+      <td th:text="${produto.getDataEntrada()}"></td>
+      <td th:text="${produto.getDataSaida()}"></td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<div th:replace="format :: rodape"></div>
+</body>
+</html>
